@@ -24,7 +24,7 @@ public class MainPageTest {
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demoqa.com/dynamic-properties");
     }
 
@@ -35,7 +35,7 @@ public class MainPageTest {
 
     @Test
     public void enable() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         WebElement disableButton = driver.findElement(By.cssSelector(("#visibleAfter")));
         wait.until(ExpectedConditions.elementToBeClickable(disableButton));
         assertTrue(disableButton.isEnabled(), "Кнопка не стала активна");
